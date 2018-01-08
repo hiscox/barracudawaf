@@ -10,16 +10,22 @@ class Puppet::Provider::RestBase < Puppet::Provider
   end
 
   def self.instances
-    result = PuppetX::BarracudaWaf::Objects.list(api_resource)
-    result.each.collect do |name, properties|
-      resource_hash = {}
-      resource_hash[:ensure] = :present
-      resource_hash[:name] = name
-      replace_hyphen(properties).each do |key, value|
-        resource_hash[key] = value if resource_type.validproperties.include?(key)
+    urls = resource_urls(api_resource_chain[0], api_resource_chain.drop(1))
+    Puppet.debug(urls)
+    result = urls.flatten.each.collect do |url|
+      Puppet.debug(url)
+      result = PuppetX::BarracudaWaf::Objects.list(url)
+      result.each.collect do |name, properties|
+        resource_hash = {}
+        resource_hash[:ensure] = :present
+        resource_hash[:name] = name
+        replace_hyphen(properties).each do |key, value|
+          resource_hash[key] = value if resource_type.validproperties.include?(key)
+        end
+        new(resource_hash)
       end
-      new(resource_hash)
     end
+    result.flatten
   end
 
   def self.prefetch(resources)
@@ -87,6 +93,26 @@ class Puppet::Provider::RestBase < Puppet::Provider
     raise 'This method must be overriden in the child provider'
   end
 
+  # Override in the child provider with the API names of any parent
+  # resources, e.g. for rule group server set to ['services', 'content-rules']
+  def self.parent_api_resources
+    []
+  end
+
+  def self.api_resource_chain
+    parent_api_resources + [api_resource]
+  end
+
+  def self.resource_urls(resource_name, child_resources)
+    return [resource_name] if child_resources.count.zero?
+    items = PuppetX::BarracudaWaf::Objects.list(resource_name)
+    items.each.collect do |name, properties|
+      next_url = "#{resource_name}/#{properties['name']}/#{child_resources[0]}"
+      resource_urls(next_url, child_resources.drop(1))
+    end
+  end
+
+  # Used for list and create operations
   def self.base_resource_url
     parent = @resource[:parent] if resource_type.parameters.include?(:parent)
     if parent
@@ -97,16 +123,17 @@ class Puppet::Provider::RestBase < Puppet::Provider
   end
 
   # Override this in the child provider if this is a global setting
-  # rather than a createable resource, e.g. /system
+  # rather than a createable resource with a unique name, e.g. /system
   def global_resource?
     false
   end
 
+  # Specifies an individual resource. Used for edit and destroy operations
   def resource_url
     if global_resource?
       self.class.api_resource
     else
-      "#{self.class.base_resource_url}/#{resource[:name]}"
+      "#{self.class.base_resource_url}/#{@resource[:name]}"
     end
   end
 end
