@@ -1,12 +1,9 @@
-Puppet::Type.newtype(:barracudawaf_rule_group_server) do
-  @doc = 'Manage Barracuda WAF rule group servers'
+Puppet::Type.newtype(:barracudawaf_content_rule_server) do
+  @doc = 'Manage Barracuda WAF content rule servers'
 
   ensurable
 
   newparam(:name) do
-  end
-
-  newparam(:parent) do
   end
 
   newproperty(:backup_server) do

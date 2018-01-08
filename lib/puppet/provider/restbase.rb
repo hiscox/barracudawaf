@@ -41,18 +41,18 @@ class Puppet::Provider::RestBase < Puppet::Provider
   end
 
   def create
-    PuppetX::BarracudaWaf::Objects.add(self.class.base_resource_url, payload)
+    PuppetX::BarracudaWaf::Objects.add(base_resource_url, payload)
     @property_hash[:ensure] = :present
   end
 
   def destroy
-    PuppetX::BarracudaWaf::Objects.delete(resource_url)
+    PuppetX::BarracudaWaf::Objects.delete(@resource[:name])
     @property_hash.clear
   end
 
   def flush
     unless @property_flush.empty?
-      PuppetX::BarracudaWaf::Objects.edit(resource_url, replace_underscore(@property_flush))
+      PuppetX::BarracudaWaf::Objects.edit(@resource[:name], replace_underscore(@property_flush))
     end
     @property_hash = @resource.to_hash
   end
@@ -112,28 +112,18 @@ class Puppet::Provider::RestBase < Puppet::Provider
     end
   end
 
-  # Used for list and create operations
-  def self.base_resource_url
-    parent = @resource[:parent] if resource_type.parameters.include?(:parent)
-    if parent
-      "#{parent}/#{api_resource}"
-    else
-      api_resource
-    end
+  # Used for create operations
+  def base_resource_url
+    raise 'TODO make this return resource URL minus the resource name'
+  end
+
+  def payload
+    raise 'TODO make this return hash that can be passed to create'
   end
 
   # Override this in the child provider if this is a global setting
   # rather than a createable resource with a unique name, e.g. /system
   def global_resource?
     false
-  end
-
-  # Specifies an individual resource. Used for edit and destroy operations
-  def resource_url
-    if global_resource?
-      self.class.api_resource
-    else
-      "#{self.class.base_resource_url}/#{@resource[:name]}"
-    end
   end
 end
