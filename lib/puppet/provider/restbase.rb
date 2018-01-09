@@ -11,14 +11,12 @@ class Puppet::Provider::RestBase < Puppet::Provider
 
   def self.instances
     urls = resource_urls(api_resource_chain[0], api_resource_chain.drop(1))
-    Puppet.debug(urls)
     result = urls.flatten.each.collect do |url|
-      Puppet.debug(url)
       result = PuppetX::BarracudaWaf::Objects.list(url)
       result.each.collect do |name, properties|
         resource_hash = {}
         resource_hash[:ensure] = :present
-        resource_hash[:name] = name
+        resource_hash[:name] = "/#{url}/#{properties['name']}".chomp('/')
         replace_hyphen(properties).each do |key, value|
           resource_hash[key] = value if resource_type.validproperties.include?(key)
         end
@@ -90,7 +88,7 @@ class Puppet::Provider::RestBase < Puppet::Provider
 
   # Name of the resource in the Barracuda API
   def self.api_resource
-    raise 'This method must be overriden in the child provider'
+    raise Puppet::DevError, _("Provider %{provider} has not defined the 'api_resource' class method") % { provider: self.name }
   end
 
   # Override in the child provider with the API names of any parent
