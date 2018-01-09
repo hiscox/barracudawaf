@@ -1,0 +1,18 @@
+module PuppetX
+  module BarracudaWaf
+    class NameLookup
+      # Convert name returned by the API to name required
+      # for API URLs
+      # e.g. "Slow Client Attack Prevention" => "slow-client-attack"
+      def self.url_name(api_name)
+        return api_name unless @mapping[api_name]
+        @mapping[api_name]
+      end
+
+      @mapping = {
+        'Basic Security' => 'basic-security',
+        'Secure Administration' => 'secure-administration'
+      }
+    end
+  end
+end

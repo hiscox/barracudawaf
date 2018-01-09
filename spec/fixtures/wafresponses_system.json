@@ -1,0 +1,322 @@
+{
+  "object": "System",
+  "data": {
+    "System": {
+      "Advanced Settings": {
+        "captcha-success-action": "Redirect to the Base URL of the Original Request",
+        "default-log-level": "5-Notice",
+        "persistence-across-services": "No",
+        "url-extensions": [
+          "dll",
+          "exe",
+          "asp",
+          "pdf",
+          "fdf",
+          "au",
+          "bmp",
+          "z",
+          "gif",
+          "html",
+          "htm",
+          "shtml",
+          "js",
+          "mocha",
+          "jpeg",
+          "jpg",
+          "jpe",
+          "jfif",
+          "pjpeg",
+          "pjp",
+          "mp2",
+          "mpa",
+          "abs",
+          "mpeg",
+          "mpg",
+          "mpe",
+          "mpv",
+          "vbs",
+          "mlv",
+          "pcx",
+          "txt",
+          "text",
+          "mov",
+          "tiff",
+          "tar",
+          "avi",
+          "wav",
+          "gz",
+          "zip",
+          "gzip",
+          "pl",
+          "jsp",
+          "nsf",
+          "swf",
+          "css",
+          "aspx",
+          "cgi",
+          "do",
+          "sh",
+          "php",
+          "tcl",
+          "py",
+          "pyc",
+          "bat",
+          "bin",
+          "vb",
+          "cs",
+          "action",
+          "swe",
+          "cfm",
+          "php3",
+          "axd",
+          "dwr",
+          "php4"
+        ],
+        "request-buffer-size": "1",
+        "csrf-token-validity": "60",
+        "suspicious-clients-track-interval": "900",
+        "request-buffering": "Limited",
+        "max-cache-size": "20",
+        "service-failure-action": "Send Error Response",
+        "client-ip-address-from-header": "Yes",
+        "chunked-encoding-response-data": "Yes",
+        "max-http-requests-per-minute": "330000",
+        "enable-bruteforce-checks-for-validated-clients": "Yes",
+        "javascript-failure-threshold": "64",
+        "captcha-expiry-time": "300",
+        "action-for-stale-server": "Disable",
+        "max-https-requests-per-minute": "300000",
+        "ddos-prevention-service": "Disable"
+      },
+      "Logs Format": {
+        "system-logs-custom-format": "%t %un %lt %md %ll %ei %ms",
+        "audit-logs-standard-format": "Default",
+        "access-logs-standard-format": "Default",
+        "audit-logs-custom-format": "%t %un %lt %an %ct %li %lp %trt %tri %cn %cht %ot %on %var %ov %nv %add",
+        "network-logs-custom-format": "%t %un %lt %sl %p %srci %srcp %di %dp %act %acl %dsc",
+        "web-firewall-logs-custom-format": "%t %un %lt %sl %ad %ci %cp %ai %ap %ri %rt %at %fa %adl %m %u %p %sid %ua %px %pp %au %r %uid",
+        "arcsight-syslog-header": "",
+        "access-logs-custom-format": "%t %un %lt %ai %ap %ci %cp %id %cu %m %p %h %v %s %bs %br %ch %tt %si %sp %st %sid %rtf %pmf %pf %wmf %u %q %r %c %ua %px %pp %au %cs1 %cs2 %cs3 %uid",
+        "system-logs-standard-format": "Default",
+        "syslog-headers": "Custom Header",
+        "web-firewall-logs-standard-format": "Default",
+        "network-logs-standard-format": "Default"
+      },
+      "LAN Configuration": {
+        "ipv6-mask": "",
+        "ip-address": "",
+        "vlan-id": "",
+        "allow-administration-access": "No",
+        "ipv6-address": "",
+        "mask": ""
+      },
+      "model": "BWFCAZ000p",
+      "Pattern Mode": {
+        "default-mode-for-updated-patterns": "Active",
+        "default-mode-for-new-patterns": "Passive"
+      },
+      "hostname": "cheeseandwine",
+      "locale": "en_US",
+      "Network Configuration": {
+        "mtu-for-lan": "1500",
+        "higher-precedence-for-acls": "System",
+        "mtu-for-wan": "1500",
+        "enable-snat-for-lan-servers": "No",
+        "tcp-timestamp": "On",
+        "mtu-for-mgmt": "1500",
+        "syn-guard": "On"
+      },
+      "Cookies and Parameters": {
+        "basic-challenge-cookie": "BasicChallenge",
+        "internal-secure-cookie-prefix": "BNIS_",
+        "bne-cookie-prefix": "BNE_",
+        "external-secure-cookie-prefix": "BNES_",
+        "user-session-cookie": "USR_SESSION_ID",
+        "access-control-cookie": "AuthzInfo",
+        "success-url-cookie": "AuthSuccessURL",
+        "forced-charset-parameter": "nccharset",
+        "rsa-state-cookie": "State",
+        "secure-form-tracking-parameter": "__ncforminfo",
+        "internal-cookie-prefix": "BNI_"
+      },
+      "enable-ipv6": "No",
+      "Export Log Filters": {
+        "web-firewall-log-severity": "1-Alert",
+        "system-log-severity": "5-Notice"
+      },
+      "NG Firewall": {
+        "server": "",
+        "port": "",
+        "username": ""
+      },
+      "Email Notifications": {
+        "from-email": "",
+        "smtp-port": "25",
+        "contact-email-id": "",
+        "alerts-email-id": "",
+        "smtp-server": "",
+        "smtp-username": ""
+      },
+      "device-name": "Web Application Firewall",
+      "serial": "1011847",
+      "DNS": {
+        "secondary-dns-server": "10.112.17.10",
+        "primary-dns-server": "10.64.17.10"
+      },
+      "Custom Headers": {
+        "header2": "",
+        "header3": "",
+        "header1": ""
+      },
+      "Module Log Levels": {
+        "name": [],
+        "comments": [],
+        "log-level": [],
+        "module": []
+      },
+      "interface-for-system-services": "WAN",
+      "operation-mode": "proxy",
+      "Management Configuration": {
+        "ipv6-mask": "",
+        "ipv6-gateway": "",
+        "gateway": "",
+        "vlan-id": "",
+        "ip-address": "",
+        "ipv6-address": "",
+        "allow-administration-access": "No",
+        "mask": ""
+      },
+      "Export Log Settings": {
+        "export-system-logs": "Enable",
+        "export-web-firewall-logs": "Enable",
+        "export-network-firewall-logs": "Enable",
+        "export-access-logs": "Enable",
+        "export-audit-logs": "Enable"
+      },
+      "Admin IP Range": {
+        "netmask": [],
+        "ip-address": []
+      },
+      "domain": "",
+      "FTP Access Logs": {
+        "destination-directory-path": "",
+        "port": "21",
+        "username": "",
+        "frequency": "daily",
+        "start-time": "00",
+        "server-ip": "",
+        "standard-log-formats": "Common Log Format",
+        "logs-format": "%h %id %u %t %r %s %br"
+      },
+      "time-zone": "America/Los_Angeles",
+      "Proxy Server": {
+        "password": "",
+        "server": "",
+        "port": "",
+        "username": ""
+      },
+      "Password Policy": {
+        "contains": [],
+        "other-expiry-time": "",
+        "notify-before-expiry": "1 Week",
+        "policy": "Default",
+        "expiry-time": "Never",
+        "minimum-characters": 8
+      },
+      "Location": {
+        "country": "",
+        "rack": "",
+        "slot": ""
+      },
+      "Web Interface": {
+        "http-session-length": "20",
+        "http-port": "8000"
+      },
+      "WAN Configuration": {
+        "ipv6-mask": "",
+        "ipv6-gateway": "",
+        "gateway": "172.29.97.1",
+        "ip-address": "172.29.97.7",
+        "vlan-id": "",
+        "ipv6-address": "",
+        "allow-administration-access": "Yes",
+        "mask": "255.255.255.0"
+      },
+      "Azure Configuration": {
+        "storage-blob-name": "",
+        "subscription-id": "",
+        "load-balancer-name": "",
+        "client-id": "",
+        "secret-key": "",
+        "azure-vmsss-name": "",
+        "user-id": "",
+        "tenant-id": "",
+        "resource-group": "",
+        "enable-multi-ip": "No",
+        "storage-account": "",
+        "login-choice": "AD User/Password",
+        "storage-account-key": "",
+        "bootstrap-file-name": ""
+      },
+      "Secure Administration": {
+        "country": "",
+        "https-port": "8443",
+        "key-size": "1024",
+        "https-access-only": "No",
+        "state": "",
+        "organization-unit": "",
+        "city": "",
+        "common-name": "",
+        "organization": ""
+      },
+      "SNMP": {
+        "version": "v2c",
+        "authentication-method": "MD5",
+        "community-string": "cudaSNMP",
+        "enable-snmp-agent": "Yes",
+        "user": "admin",
+        "encryption-method": "DES",
+        "netmask": [],
+        "ip-address": [],
+        "system-location": ""
+      },
+      "Appearance": {
+        "logo-url": "",
+        "login-notice": ""
+      },
+      "Energize Updates": {
+        "security-definitions-auto-update": "On",
+        "geoip-definitions-auto-update": "On",
+        "virus-definitions-auto-update": "On",
+        "attack-definitions-auto-update": "On"
+      },
+      "Trap Receivers": {
+        "ip-address": [],
+        "port": [],
+        "community-string": []
+      },
+      "Syslog Settings": {
+        "syslog-facility": "local0",
+        "access-log-facility": "local0",
+        "network-firewall-log-facility": "local0",
+        "audit-log-facility": "local0",
+        "web-firewall-log-facility": "local0"
+      },
+      "Encryption Key": {
+        "key-expiry-timezone": "Local",
+        "key-expiry": "2017-11-11 00:00:00",
+        "cookie-encryption-key": "gEYPuS0X/QEBww7XIxQVlYWkL9F7KNKzNDNYHnx3w7SiaI8Z7C5d9dFPt0LkqaCKml4B8U5LwcxM8mKub2L6BdkiLAdfDHVrECLb+H0m/pdyp4ScNvRvmzgpjHugdXjD"
+      },
+      "Local Hosts": {
+        "ip-address": [],
+        "hostname": []
+      },
+      "Account Lockout Settings": {
+        "failed-login-time-threshold": 15,
+        "maximum-failed-login-attempts": 5,
+        "lockout-duration": 15
+      }
+    }
+  },
+  "token": "eyJldCI6IjE1MTU1MTY5NzkiLCJwYXNzd29yZCI6IjIxOTA2MmZhNjgxNWQ1M2E2MGM1MDM3ZWI2\nY2ZhMzE4IiwidXNlciI6ImFkbWluIn0=\n"
+}

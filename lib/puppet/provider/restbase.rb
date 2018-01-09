@@ -1,4 +1,13 @@
 require_relative '../../puppet_x/barracuda/waf/objects'
+require_relative '../../puppet_x/barracuda/waf/namelookup'
+
+# Monkey patch a method to check if a hash
+# is a subset of another
+class Hash
+  def include_hash?(hash)
+    merge(hash) == self
+  end
+end
 
 class Puppet::Provider::RestBase < Puppet::Provider
   confine feature: :restclient
@@ -7,6 +16,7 @@ class Puppet::Provider::RestBase < Puppet::Provider
   def initialize(value = {})
     super(value)
     @property_flush = {}
+    @property_nested = {}
   end
 
   def self.instances
@@ -40,6 +50,10 @@ class Puppet::Provider::RestBase < Puppet::Provider
 
   def create
     PuppetX::BarracudaWaf::Objects.add(base_resource_url, property_create)
+    replace_underscore(nested_property_create).each do |sub_resource, properties|
+      resource_url = "#{@resource[:name]}/#{sub_resource}"
+      PuppetX::BarracudaWaf::Objects.edit(resource_url, properties)
+    end
     @property_hash[:ensure] = :present
   end
 
@@ -51,6 +65,12 @@ class Puppet::Provider::RestBase < Puppet::Provider
   def flush
     unless @property_flush.empty?
       PuppetX::BarracudaWaf::Objects.edit(@resource[:name], replace_underscore(@property_flush))
+    end
+    unless @property_nested.empty?
+      replace_underscore(@property_nested).each do |sub_resource, properties|
+        resource_url = "#{@resource[:name]}/#{sub_resource}"
+        PuppetX::BarracudaWaf::Objects.edit(resource_url, properties)
+      end
     end
     @property_hash = @resource.to_hash
   end
@@ -64,7 +84,9 @@ class Puppet::Provider::RestBase < Puppet::Provider
   # Replaces hyphens with underscores in the keys of a hash and converts
   # them to symbols
   def self.replace_hyphen(input_hash)
-    input_hash.map { |k, v| [k.tr('-', '_').to_sym, v] }.to_h
+    input_hash.map { |k, v|
+      [PuppetX::BarracudaWaf::NameLookup.url_name(k).tr('-', '_').to_sym, v]
+    }.to_h
   end
 
   # Modified version of mk_resource_methods that updates @property_flush in the
@@ -81,7 +103,7 @@ class Puppet::Provider::RestBase < Puppet::Provider
         end
       end
       define_method(attr.to_s + '=') do |val|
-        @property_flush[attr] = val
+        val.is_a?(Hash) ? @property_nested[attr] = val : @property_flush[attr] = val
       end
     end
   end
@@ -124,10 +146,17 @@ class Puppet::Provider::RestBase < Puppet::Provider
     result = {}
     @resource.eachproperty do |prop|
       next if prop.name.to_s == 'ensure'
-      result[prop.name] = prop.should
+      result[prop.name] = prop.should unless prop.should.is_a?(Hash)
     end
     result['name'] = resource_name
-    Puppet.debug(result)
+    replace_underscore(result)
+  end
+
+  def nested_property_create
+    result = {}
+    @resource.eachproperty do |prop|
+      result[prop.name] = prop.should if prop.should.is_a?(Hash)
+    end
     replace_underscore(result)
   end
 

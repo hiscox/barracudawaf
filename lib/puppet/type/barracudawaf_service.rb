@@ -53,4 +53,10 @@ Puppet::Type.newtype(:barracudawaf_service) do
 
   newproperty(:linked_service_name) do
   end
+
+  newproperty(:basic_security) do
+    def insync?(is)
+      is.include_hash?(should)
+    end
+  end
 end
