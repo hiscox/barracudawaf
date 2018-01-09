@@ -39,7 +39,7 @@ class Puppet::Provider::RestBase < Puppet::Provider
   end
 
   def create
-    PuppetX::BarracudaWaf::Objects.add(base_resource_url, payload)
+    PuppetX::BarracudaWaf::Objects.add(base_resource_url, property_create)
     @property_hash[:ensure] = :present
   end
 
@@ -101,22 +101,34 @@ class Puppet::Provider::RestBase < Puppet::Provider
     parent_api_resources + [api_resource]
   end
 
-  def self.resource_urls(resource_name, child_resources)
-    return [resource_name] if child_resources.count.zero?
-    items = PuppetX::BarracudaWaf::Objects.list(resource_name)
+  def self.resource_urls(resource_url, child_resources)
+    return [resource_url] if child_resources.count.zero?
+    items = PuppetX::BarracudaWaf::Objects.list(resource_url)
     items.each.collect do |name, properties|
-      next_url = "#{resource_name}/#{properties['name']}/#{child_resources[0]}"
+      next_url = "#{resource_url}/#{properties['name']}/#{child_resources[0]}"
       resource_urls(next_url, child_resources.drop(1))
     end
   end
 
   # Used for create operations
   def base_resource_url
-    raise 'TODO make this return resource URL minus the resource name'
+    elements = @resource[:name].lines('/')
+    elements.take(elements.count - 1).join.chomp('/')
   end
 
-  def payload
-    raise 'TODO make this return hash that can be passed to create'
+  def resource_name
+    @resource[:name].lines('/').last
+  end
+
+  def property_create
+    result = {}
+    @resource.eachproperty do |prop|
+      next if prop.name.to_s == 'ensure'
+      result[prop.name] = prop.should
+    end
+    result['name'] = resource_name
+    Puppet.debug(result)
+    replace_underscore(result)
   end
 
   # Override this in the child provider if this is a global setting

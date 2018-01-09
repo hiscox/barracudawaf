@@ -45,8 +45,8 @@ module PuppetX
         rescue RuntimeError => e
           # TODO: proper error handling
           if e.response.code == 302
-            message = e.http_headers[:location]
-            raise message
+            redirect = e.http_headers[:location]
+            Puppet.warning("Redirect to '#{redirect}' detected")
           else
             raise e
           end
@@ -58,7 +58,7 @@ module PuppetX
       def build_request(method, resource, payload)
         request = {
           method: method,
-          url: "#{@endpoint}/#{resource}",
+          url: sanitise_url("#{@endpoint}/#{resource}"),
           verify_ssl: OpenSSL::SSL::VERIFY_NONE
         }
         unless payload.count.zero?
@@ -67,6 +67,10 @@ module PuppetX
         end
         request[:user] = @token unless @token.nil?
         request
+      end
+
+      def sanitise_url(url)
+        url.gsub(Regexp.new('(?<!http:)(?<!https:)//'), '/').chomp('/')
       end
     end
   end
