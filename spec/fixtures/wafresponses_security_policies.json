@@ -1,0 +1,1082 @@
+{
+  "object": "Security Policy",
+  "data": {
+    "sharepoint2013": {
+      "URL Normalization": {
+        "default-charset": "UTF-8",
+        "parameter-separators": "Ampersand only",
+        "detect-response-charset": "No",
+        "apply-double-decoding": "No"
+      },
+      "Request Limits": {
+        "max-number-of-cookies": "40",
+        "enable": "Yes",
+        "max-header-name-length": "32",
+        "max-request-length": "32768",
+        "max-number-of-headers": "20",
+        "max-cookie-value-length": "4096",
+        "max-query-length": "4096",
+        "max-request-line-length": "4096",
+        "max-url-length": "4096",
+        "max-header-value-length": "1024",
+        "max-cookie-name-length": "128"
+      },
+      "Parameter Protection": {
+        "enable": "Yes",
+        "file-upload-mime-types": [],
+        "exception-patterns": [],
+        "maximum-parameter-value-length": "4096",
+        "custom-blocked-attack-types": [],
+        "denied-metacharacters": "%00%01%04%1b%08%5c%7f",
+        "maximum-instances": "",
+        "base64-decode-parameter-value": "No",
+        "ignore-parameters": [
+          "__VIEWSTATE",
+          "PostBody"
+        ],
+        "blocked-attack-types": [
+          "Cross-Site Scripting",
+          "SQL Injection",
+          "OS Command Injection",
+          "LDAP Injection",
+          "Python-PHP attacks",
+          "HTTP Specific Injection",
+          "Apache Struts attacks"
+        ],
+        "file-upload-extensions": [
+          "JPG",
+          "GIF",
+          "PDF",
+          "DOC",
+          "DOCX",
+          "TXT"
+        ],
+        "maximum-upload-file-size": "1024",
+        "validate-parameter-name": "No",
+        "allowed-file-upload-type": "Extensions"
+      },
+      "name": "sharepoint2013",
+      "Cookie Security": {
+        "cookie-replay-protection-type": "IP",
+        "custom-headers": [],
+        "http-only": "No",
+        "secure-cookie": "No",
+        "cookies-exempted": [
+          "__utma",
+          "__utmc",
+          "__utmz",
+          "__utmb",
+          "AuthSuccessURL",
+          "CTSESSION",
+          "SMSESSION",
+          "SMCHALLENGE",
+          "Ribbon.ListForm.Edit",
+          "Ribbon.Read",
+          "WSS_FullScreenMode",
+          "databaseBtnText",
+          "databaseBtnDesc",
+          "stsSyncAppName",
+          "stsSyncIconPath",
+          "Ribbon.ListForm.Display",
+          "Ribbon.Timeline"
+        ],
+        "cookie-max-age": "1440",
+        "tamper-proof-mode": "Signed",
+        "allow-unrecognized-cookies": "Custom",
+        "days-allowed": "7"
+      },
+      "URL Protection": {
+        "enable": "Enable",
+        "max-content-length": "32768",
+        "exception-patterns": [],
+        "custom-blocked-attack-types": [],
+        "csrf-prevention": "None",
+        "allowed-methods": [
+          "GET",
+          "POST",
+          "PUT",
+          "HEAD",
+          "CONNECT",
+          "OPTIONS",
+          "BDELETE",
+          "BMOVE",
+          "COPY",
+          "DELETE",
+          "ERROR",
+          "LOCK",
+          "MKCOL",
+          "MOVE",
+          "PROPFIND",
+          "PROPPATCH",
+          "PURGE",
+          "TRACE",
+          "UNLOCK"
+        ],
+        "max-parameters": "64",
+        "blocked-attack-types": [
+          "Cross-Site Scripting",
+          "SQL Injection",
+          "OS Command Injection",
+          "LDAP Injection",
+          "Python-PHP attacks",
+          "HTTP Specific Injection",
+          "Apache Struts attacks"
+        ],
+        "maximum-upload-files": "5",
+        "allowed-content-types": [
+          "application/x-www-form-urlencoded",
+          "multipart/form-data",
+          "text/xml",
+          "application/x-www-UTF8-encoded",
+          "application/x-vermeer-urlencoded",
+          "application/json"
+        ],
+        "maximum-parameter-name-length": "150"
+      },
+      "Cloaking": {
+        "filter-response-header": "Yes",
+        "headers-to-filter": [
+          "Server",
+          "X-Powered-By",
+          "X-AspNet-Version",
+          "MicrosoftSharePointTeamServices"
+        ],
+        "return-codes-to-exempt": [
+          "403"
+        ],
+        "suppress-return-code": "Yes"
+      }
+    },
+    "owa2010": {
+      "URL Normalization": {
+        "default-charset": "UTF-8",
+        "parameter-separators": "Ampersand only",
+        "detect-response-charset": "No",
+        "apply-double-decoding": "No"
+      },
+      "Request Limits": {
+        "max-number-of-cookies": "40",
+        "enable": "Yes",
+        "max-header-name-length": "32",
+        "max-request-length": "32768",
+        "max-number-of-headers": "20",
+        "max-cookie-value-length": "4096",
+        "max-query-length": "4096",
+        "max-request-line-length": "4096",
+        "max-url-length": "4096",
+        "max-header-value-length": "1024",
+        "max-cookie-name-length": "64"
+      },
+      "Parameter Protection": {
+        "enable": "Yes",
+        "file-upload-mime-types": [],
+        "exception-patterns": [],
+        "maximum-parameter-value-length": "1024",
+        "custom-blocked-attack-types": [],
+        "denied-metacharacters": "%00%01%04%1b%08%5c%7f",
+        "maximum-instances": "",
+        "base64-decode-parameter-value": "No",
+        "ignore-parameters": [
+          "__VIEWSTATE"
+        ],
+        "blocked-attack-types": [
+          "Cross-Site Scripting",
+          "SQL Injection",
+          "OS Command Injection",
+          "LDAP Injection",
+          "Python-PHP attacks",
+          "HTTP Specific Injection",
+          "Apache Struts attacks"
+        ],
+        "file-upload-extensions": [
+          "JPG",
+          "GIF",
+          "PDF",
+          "RAR",
+          "ZIP",
+          "PPT",
+          "RTF",
+          "DOC"
+        ],
+        "maximum-upload-file-size": "8192",
+        "validate-parameter-name": "No",
+        "allowed-file-upload-type": "Extensions"
+      },
+      "name": "owa2010",
+      "Cookie Security": {
+        "cookie-replay-protection-type": "IP",
+        "custom-headers": [],
+        "http-only": "No",
+        "secure-cookie": "No",
+        "cookies-exempted": [
+          "__utma",
+          "__utmc",
+          "__utmz",
+          "__utmb",
+          "AuthSuccessURL",
+          "CTSESSION",
+          "SMSESSION",
+          "SMCHALLENGE",
+          "MstrPgLd1",
+          "MstrPgLd2"
+        ],
+        "cookie-max-age": "1440",
+        "tamper-proof-mode": "Signed",
+        "allow-unrecognized-cookies": "Custom",
+        "days-allowed": "7"
+      },
+      "URL Protection": {
+        "enable": "Enable",
+        "max-content-length": "8388608",
+        "exception-patterns": [],
+        "custom-blocked-attack-types": [],
+        "csrf-prevention": "None",
+        "allowed-methods": [
+          "GET",
+          "POST",
+          "PUT",
+          "HEAD",
+          "CONNECT",
+          "OPTIONS",
+          "DELETE",
+          "SEARCH",
+          "POLL",
+          "PROPFIND",
+          "BMOVE",
+          "BCOPY",
+          "SUBSCRIBE",
+          "MOVE",
+          "PROPPATCH",
+          "BPROPPATCH",
+          "BDELETE",
+          "MKCOL",
+          "RPC_OUT_DATA",
+          "RPC_IN_DATA",
+          "COPY",
+          "ERROR",
+          "LOCK",
+          "PURGE",
+          "TRACE",
+          "UNLOCK"
+        ],
+        "max-parameters": "40",
+        "blocked-attack-types": [
+          "Cross-Site Scripting",
+          "SQL Injection",
+          "OS Command Injection",
+          "LDAP Injection",
+          "Python-PHP attacks",
+          "HTTP Specific Injection",
+          "Apache Struts attacks"
+        ],
+        "maximum-upload-files": "5",
+        "allowed-content-types": [
+          "application/x-www-form-urlencoded",
+          "multipart/form-data",
+          "application/x-www-UTF8-encoded",
+          "text/xml",
+          "text/plain",
+          "application/vnd.ms-sync.wbxml",
+          "message/rfc822",
+          "application/json",
+          "application/mapi-http"
+        ],
+        "maximum-parameter-name-length": "64"
+      },
+      "Cloaking": {
+        "filter-response-header": "Yes",
+        "headers-to-filter": [
+          "Server",
+          "X-Powered-By",
+          "X-AspNet-Version"
+        ],
+        "return-codes-to-exempt": [],
+        "suppress-return-code": "No"
+      }
+    },
+    "sharepoint": {
+      "URL Normalization": {
+        "default-charset": "UTF-8",
+        "parameter-separators": "Ampersand only",
+        "detect-response-charset": "No",
+        "apply-double-decoding": "No"
+      },
+      "Request Limits": {
+        "max-number-of-cookies": "40",
+        "enable": "Yes",
+        "max-header-name-length": "32",
+        "max-request-length": "32768",
+        "max-number-of-headers": "20",
+        "max-cookie-value-length": "4096",
+        "max-query-length": "4096",
+        "max-request-line-length": "4096",
+        "max-url-length": "4096",
+        "max-header-value-length": "1024",
+        "max-cookie-name-length": "64"
+      },
+      "Parameter Protection": {
+        "enable": "Yes",
+        "file-upload-mime-types": [
+          "image/jpeg",
+          "image/gif",
+          "application/pdf"
+        ],
+        "exception-patterns": [],
+        "maximum-parameter-value-length": "4096",
+        "custom-blocked-attack-types": [],
+        "denied-metacharacters": "%00%01%04%1b%08%5c%7f",
+        "maximum-instances": "",
+        "base64-decode-parameter-value": "No",
+        "ignore-parameters": [
+          "__VIEWSTATE",
+          "PostBody"
+        ],
+        "blocked-attack-types": [
+          "Cross-Site Scripting",
+          "SQL Injection",
+          "OS Command Injection",
+          "LDAP Injection",
+          "Python-PHP attacks",
+          "HTTP Specific Injection",
+          "Apache Struts attacks"
+        ],
+        "file-upload-extensions": [
+          "JPG",
+          "GIF",
+          "PDF"
+        ],
+        "maximum-upload-file-size": "1024",
+        "validate-parameter-name": "No",
+        "allowed-file-upload-type": "Extensions"
+      },
+      "name": "sharepoint",
+      "Cookie Security": {
+        "cookie-replay-protection-type": "IP",
+        "custom-headers": [],
+        "http-only": "No",
+        "secure-cookie": "No",
+        "cookies-exempted": [
+          "__utma",
+          "__utmc",
+          "__utmz",
+          "__utmb",
+          "AuthSuccessURL",
+          "CTSESSION",
+          "SMSESSION",
+          "SMCHALLENGE"
+        ],
+        "cookie-max-age": "1440",
+        "tamper-proof-mode": "Signed",
+        "allow-unrecognized-cookies": "Custom",
+        "days-allowed": "7"
+      },
+      "URL Protection": {
+        "enable": "Enable",
+        "max-content-length": "32768",
+        "exception-patterns": [],
+        "custom-blocked-attack-types": [],
+        "csrf-prevention": "None",
+        "allowed-methods": [
+          "GET",
+          "POST",
+          "PUT",
+          "HEAD",
+          "CONNECT",
+          "OPTIONS",
+          "BDELETE",
+          "BMOVE",
+          "COPY",
+          "DELETE",
+          "ERROR",
+          "LOCK",
+          "MKCOL",
+          "MOVE",
+          "PROPFIND",
+          "PROPPATCH",
+          "PURGE",
+          "TRACE",
+          "UNLOCK"
+        ],
+        "max-parameters": "40",
+        "blocked-attack-types": [
+          "Cross-Site Scripting",
+          "SQL Injection",
+          "OS Command Injection",
+          "LDAP Injection",
+          "Python-PHP attacks",
+          "HTTP Specific Injection",
+          "Apache Struts attacks"
+        ],
+        "maximum-upload-files": "5",
+        "allowed-content-types": [
+          "application/x-www-form-urlencoded",
+          "multipart/form-data",
+          "text/xml",
+          "application/x-www-UTF8-encoded",
+          "application/x-vermeer-urlencoded",
+          "application/json"
+        ],
+        "maximum-parameter-name-length": "64"
+      },
+      "Cloaking": {
+        "filter-response-header": "Yes",
+        "headers-to-filter": [
+          "Server",
+          "X-Powered-By",
+          "X-AspNet-Version",
+          "MicrosoftSharePointTeamServices"
+        ],
+        "return-codes-to-exempt": [
+          "403"
+        ],
+        "suppress-return-code": "Yes"
+      }
+    },
+    "saml": {
+      "URL Normalization": {
+        "default-charset": "UTF-8",
+        "parameter-separators": "Ampersand only",
+        "detect-response-charset": "No",
+        "apply-double-decoding": "No"
+      },
+      "Request Limits": {
+        "max-number-of-cookies": "40",
+        "enable": "Yes",
+        "max-header-name-length": "32",
+        "max-request-length": "32768",
+        "max-number-of-headers": "20",
+        "max-cookie-value-length": "4096",
+        "max-query-length": "4096",
+        "max-request-line-length": "4096",
+        "max-url-length": "4096",
+        "max-header-value-length": "2048",
+        "max-cookie-name-length": "64"
+      },
+      "Parameter Protection": {
+        "enable": "Yes",
+        "file-upload-mime-types": [
+          "image/jpeg",
+          "image/gif",
+          "application/pdf"
+        ],
+        "exception-patterns": [],
+        "maximum-parameter-value-length": "4096",
+        "custom-blocked-attack-types": [],
+        "denied-metacharacters": "%00%01%04%1b%08%5c%7f",
+        "maximum-instances": "",
+        "base64-decode-parameter-value": "No",
+        "ignore-parameters": [
+          "__VIEWSTATE",
+          "SAMLResponse",
+          "SAMLRequest"
+        ],
+        "blocked-attack-types": [
+          "Cross-Site Scripting",
+          "SQL Injection",
+          "OS Command Injection",
+          "LDAP Injection",
+          "Python-PHP attacks",
+          "HTTP Specific Injection",
+          "Apache Struts attacks"
+        ],
+        "file-upload-extensions": [
+          "JPG",
+          "GIF",
+          "PDF"
+        ],
+        "maximum-upload-file-size": "1024",
+        "validate-parameter-name": "No",
+        "allowed-file-upload-type": "Extensions"
+      },
+      "name": "saml",
+      "Cookie Security": {
+        "cookie-replay-protection-type": "IP",
+        "custom-headers": [],
+        "http-only": "No",
+        "secure-cookie": "No",
+        "cookies-exempted": [
+          "__utma",
+          "__utmc",
+          "__utmz",
+          "__utmb",
+          "AuthSuccessURL",
+          "CTSESSION",
+          "SMSESSION",
+          "SMCHALLENGE",
+          "_shibsession_",
+          "_shibstate_"
+        ],
+        "cookie-max-age": "1440",
+        "tamper-proof-mode": "Signed",
+        "allow-unrecognized-cookies": "Custom",
+        "days-allowed": "7"
+      },
+      "URL Protection": {
+        "enable": "Enable",
+        "max-content-length": "32768",
+        "exception-patterns": [],
+        "custom-blocked-attack-types": [],
+        "csrf-prevention": "None",
+        "allowed-methods": [
+          "GET",
+          "POST",
+          "HEAD"
+        ],
+        "max-parameters": "40",
+        "blocked-attack-types": [
+          "Cross-Site Scripting",
+          "SQL Injection",
+          "OS Command Injection",
+          "LDAP Injection",
+          "Python-PHP attacks",
+          "HTTP Specific Injection",
+          "Apache Struts attacks"
+        ],
+        "maximum-upload-files": "5",
+        "allowed-content-types": [
+          "application/x-www-form-urlencoded",
+          "multipart/form-data",
+          "text/xml",
+          "application/json"
+        ],
+        "maximum-parameter-name-length": "64"
+      },
+      "Cloaking": {
+        "filter-response-header": "Yes",
+        "headers-to-filter": [
+          "Server",
+          "X-Powered-By",
+          "X-AspNet-Version"
+        ],
+        "return-codes-to-exempt": [],
+        "suppress-return-code": "Yes"
+      }
+    },
+    "owa2013": {
+      "URL Normalization": {
+        "default-charset": "UTF-8",
+        "parameter-separators": "Ampersand only",
+        "detect-response-charset": "No",
+        "apply-double-decoding": "No"
+      },
+      "Request Limits": {
+        "max-number-of-cookies": "40",
+        "enable": "Yes",
+        "max-header-name-length": "32",
+        "max-request-length": "32768",
+        "max-number-of-headers": "20",
+        "max-cookie-value-length": "4096",
+        "max-query-length": "4096",
+        "max-request-line-length": "4096",
+        "max-url-length": "4096",
+        "max-header-value-length": "1024",
+        "max-cookie-name-length": "64"
+      },
+      "Parameter Protection": {
+        "enable": "Yes",
+        "file-upload-mime-types": [],
+        "exception-patterns": [],
+        "maximum-parameter-value-length": "1024",
+        "custom-blocked-attack-types": [],
+        "denied-metacharacters": "%00%01%04%1b%08%5c%7f",
+        "maximum-instances": "",
+        "base64-decode-parameter-value": "No",
+        "ignore-parameters": [
+          "__VIEWSTATE"
+        ],
+        "blocked-attack-types": [
+          "Cross-Site Scripting",
+          "SQL Injection",
+          "OS Command Injection",
+          "LDAP Injection",
+          "Python-PHP attacks",
+          "HTTP Specific Injection",
+          "Apache Struts attacks"
+        ],
+        "file-upload-extensions": [
+          "JPG",
+          "GIF",
+          "PDF",
+          "RAR",
+          "ZIP",
+          "PPT",
+          "RTF",
+          "DOC"
+        ],
+        "maximum-upload-file-size": "8192",
+        "validate-parameter-name": "No",
+        "allowed-file-upload-type": "Extensions"
+      },
+      "name": "owa2013",
+      "Cookie Security": {
+        "cookie-replay-protection-type": "IP",
+        "custom-headers": [],
+        "http-only": "No",
+        "secure-cookie": "No",
+        "cookies-exempted": [
+          "__utma",
+          "__utmc",
+          "__utmz",
+          "__utmb",
+          "AuthSuccessURL",
+          "CTSESSION",
+          "SMSESSION",
+          "SMCHALLENGE",
+          "MstrPgLd1",
+          "MstrPgLd2",
+          "EcpUpdatedUserSettings",
+          "UpdatedUserSettings"
+        ],
+        "cookie-max-age": "1440",
+        "tamper-proof-mode": "Signed",
+        "allow-unrecognized-cookies": "Custom",
+        "days-allowed": "7"
+      },
+      "URL Protection": {
+        "enable": "Enable",
+        "max-content-length": "8388608",
+        "exception-patterns": [],
+        "custom-blocked-attack-types": [],
+        "csrf-prevention": "None",
+        "allowed-methods": [
+          "GET",
+          "POST",
+          "PUT",
+          "HEAD",
+          "CONNECT",
+          "OPTIONS",
+          "DELETE",
+          "SEARCH",
+          "POLL",
+          "PROPFIND",
+          "BMOVE",
+          "BCOPY",
+          "SUBSCRIBE",
+          "MOVE",
+          "PROPPATCH",
+          "BPROPPATCH",
+          "BDELETE",
+          "MKCOL",
+          "RPC_OUT_DATA",
+          "RPC_IN_DATA",
+          "COPY",
+          "ERROR",
+          "LOCK",
+          "PURGE",
+          "TRACE",
+          "UNLOCK"
+        ],
+        "max-parameters": "40",
+        "blocked-attack-types": [
+          "Cross-Site Scripting",
+          "SQL Injection",
+          "OS Command Injection",
+          "LDAP Injection",
+          "Python-PHP attacks",
+          "HTTP Specific Injection",
+          "Apache Struts attacks"
+        ],
+        "maximum-upload-files": "5",
+        "allowed-content-types": [
+          "application/x-www-form-urlencoded",
+          "multipart/form-data",
+          "application/x-www-UTF8-encoded",
+          "text/xml",
+          "text/plain",
+          "application/vnd.ms-sync.wbxml",
+          "message/rfc822",
+          "application/json",
+          "application/mapi-http"
+        ],
+        "maximum-parameter-name-length": "64"
+      },
+      "Cloaking": {
+        "filter-response-header": "Yes",
+        "headers-to-filter": [
+          "Server",
+          "X-Powered-By",
+          "X-AspNet-Version"
+        ],
+        "return-codes-to-exempt": [],
+        "suppress-return-code": "No"
+      }
+    },
+    "default": {
+      "URL Normalization": {
+        "default-charset": "UTF-8",
+        "parameter-separators": "Ampersand only",
+        "detect-response-charset": "No",
+        "apply-double-decoding": "No"
+      },
+      "Request Limits": {
+        "max-number-of-cookies": "40",
+        "enable": "Yes",
+        "max-header-name-length": "32",
+        "max-request-length": "32768",
+        "max-number-of-headers": "20",
+        "max-cookie-value-length": "4096",
+        "max-query-length": "4096",
+        "max-request-line-length": "4096",
+        "max-url-length": "4096",
+        "max-header-value-length": "1024",
+        "max-cookie-name-length": "64"
+      },
+      "Parameter Protection": {
+        "enable": "Yes",
+        "file-upload-mime-types": [
+          "image/jpeg",
+          "image/gif",
+          "application/pdf"
+        ],
+        "exception-patterns": [],
+        "maximum-parameter-value-length": "1000",
+        "custom-blocked-attack-types": [],
+        "denied-metacharacters": "%00%01%04%1b%08%5c%7f",
+        "maximum-instances": "",
+        "base64-decode-parameter-value": "No",
+        "ignore-parameters": [
+          "__VIEWSTATE"
+        ],
+        "blocked-attack-types": [
+          "Cross-Site Scripting",
+          "SQL Injection",
+          "OS Command Injection",
+          "LDAP Injection",
+          "Python-PHP attacks",
+          "HTTP Specific Injection",
+          "Apache Struts attacks"
+        ],
+        "file-upload-extensions": [
+          "JPG",
+          "GIF",
+          "PDF"
+        ],
+        "maximum-upload-file-size": "1024",
+        "validate-parameter-name": "No",
+        "allowed-file-upload-type": "Extensions"
+      },
+      "name": "default",
+      "Cookie Security": {
+        "cookie-replay-protection-type": "IP",
+        "custom-headers": [],
+        "http-only": "No",
+        "secure-cookie": "No",
+        "cookies-exempted": [
+          "__utma",
+          "__utmc",
+          "__utmz",
+          "__utmb",
+          "AuthSuccessURL",
+          "CTSESSION",
+          "SMSESSION",
+          "SMCHALLENGE"
+        ],
+        "cookie-max-age": "1440",
+        "tamper-proof-mode": "Signed",
+        "allow-unrecognized-cookies": "Custom",
+        "days-allowed": "7"
+      },
+      "URL Protection": {
+        "enable": "Enable",
+        "max-content-length": "32768",
+        "exception-patterns": [],
+        "custom-blocked-attack-types": [],
+        "csrf-prevention": "None",
+        "allowed-methods": [
+          "GET",
+          "POST",
+          "HEAD"
+        ],
+        "max-parameters": "40",
+        "blocked-attack-types": [
+          "Cross-Site Scripting",
+          "SQL Injection",
+          "OS Command Injection",
+          "LDAP Injection",
+          "Python-PHP attacks",
+          "HTTP Specific Injection",
+          "Apache Struts attacks"
+        ],
+        "maximum-upload-files": "5",
+        "allowed-content-types": [
+          "application/x-www-form-urlencoded",
+          "multipart/form-data",
+          "text/xml",
+          "application/json"
+        ],
+        "maximum-parameter-name-length": "64"
+      },
+      "Cloaking": {
+        "filter-response-header": "Yes",
+        "headers-to-filter": [
+          "Server",
+          "X-Powered-By",
+          "X-AspNet-Version"
+        ],
+        "return-codes-to-exempt": [],
+        "suppress-return-code": "Yes"
+      }
+    },
+    "oracle": {
+      "URL Normalization": {
+        "default-charset": "UTF-8",
+        "parameter-separators": "Ampersand only",
+        "detect-response-charset": "No",
+        "apply-double-decoding": "No"
+      },
+      "Request Limits": {
+        "max-number-of-cookies": "40",
+        "enable": "Yes",
+        "max-header-name-length": "32",
+        "max-request-length": "32768",
+        "max-number-of-headers": "20",
+        "max-cookie-value-length": "4096",
+        "max-query-length": "4096",
+        "max-request-line-length": "4096",
+        "max-url-length": "4096",
+        "max-header-value-length": "1024",
+        "max-cookie-name-length": "64"
+      },
+      "Parameter Protection": {
+        "enable": "Yes",
+        "file-upload-mime-types": [
+          "image/jpeg",
+          "image/gif",
+          "application/pdf"
+        ],
+        "exception-patterns": [],
+        "maximum-parameter-value-length": "1000",
+        "custom-blocked-attack-types": [],
+        "denied-metacharacters": "%00%01%04%1b%08%5c%7f",
+        "maximum-instances": "",
+        "base64-decode-parameter-value": "No",
+        "ignore-parameters": [
+          "__VIEWSTATE"
+        ],
+        "blocked-attack-types": [
+          "Cross-Site Scripting",
+          "SQL Injection",
+          "OS Command Injection",
+          "LDAP Injection",
+          "Python-PHP attacks",
+          "HTTP Specific Injection",
+          "Apache Struts attacks"
+        ],
+        "file-upload-extensions": [
+          "JPG",
+          "GIF",
+          "PDF"
+        ],
+        "maximum-upload-file-size": "1024",
+        "validate-parameter-name": "No",
+        "allowed-file-upload-type": "Extensions"
+      },
+      "name": "oracle",
+      "Cookie Security": {
+        "cookie-replay-protection-type": "IP",
+        "custom-headers": [],
+        "http-only": "No",
+        "secure-cookie": "No",
+        "cookies-exempted": [
+          "__utma",
+          "__utmc",
+          "__utmz",
+          "__utmb",
+          "AuthSuccessURL",
+          "CTSESSION",
+          "SMSESSION",
+          "SMCHALLENGE"
+        ],
+        "cookie-max-age": "1440",
+        "tamper-proof-mode": "Signed",
+        "allow-unrecognized-cookies": "Custom",
+        "days-allowed": "7"
+      },
+      "URL Protection": {
+        "enable": "Enable",
+        "max-content-length": "32768",
+        "exception-patterns": [],
+        "custom-blocked-attack-types": [],
+        "csrf-prevention": "None",
+        "allowed-methods": [
+          "GET",
+          "POST",
+          "HEAD"
+        ],
+        "max-parameters": "40",
+        "blocked-attack-types": [
+          "Cross-Site Scripting",
+          "SQL Injection",
+          "OS Command Injection",
+          "LDAP Injection",
+          "Python-PHP attacks",
+          "HTTP Specific Injection",
+          "Apache Struts attacks"
+        ],
+        "maximum-upload-files": "5",
+        "allowed-content-types": [
+          "application/x-www-form-urlencoded",
+          "multipart/form-data",
+          "text/xml",
+          "application/json"
+        ],
+        "maximum-parameter-name-length": "64"
+      },
+      "Cloaking": {
+        "filter-response-header": "Yes",
+        "headers-to-filter": [
+          "Server",
+          "X-Powered-By",
+          "X-AspNet-Version"
+        ],
+        "return-codes-to-exempt": [],
+        "suppress-return-code": "Yes"
+      }
+    },
+    "owa": {
+      "URL Normalization": {
+        "default-charset": "UTF-8",
+        "parameter-separators": "Ampersand only",
+        "detect-response-charset": "No",
+        "apply-double-decoding": "No"
+      },
+      "Request Limits": {
+        "max-number-of-cookies": "40",
+        "enable": "Yes",
+        "max-header-name-length": "32",
+        "max-request-length": "32768",
+        "max-number-of-headers": "20",
+        "max-cookie-value-length": "4096",
+        "max-query-length": "4096",
+        "max-request-line-length": "4096",
+        "max-url-length": "4096",
+        "max-header-value-length": "1024",
+        "max-cookie-name-length": "64"
+      },
+      "Parameter Protection": {
+        "enable": "Yes",
+        "file-upload-mime-types": [
+          "image/jpeg",
+          "image/gif",
+          "application/pdf"
+        ],
+        "exception-patterns": [],
+        "maximum-parameter-value-length": "1024",
+        "custom-blocked-attack-types": [],
+        "denied-metacharacters": "%00%01%04%1b%08%5c%7f",
+        "maximum-instances": "",
+        "base64-decode-parameter-value": "No",
+        "ignore-parameters": [
+          "__VIEWSTATE"
+        ],
+        "blocked-attack-types": [
+          "Cross-Site Scripting",
+          "SQL Injection",
+          "OS Command Injection",
+          "LDAP Injection",
+          "Python-PHP attacks",
+          "HTTP Specific Injection",
+          "Apache Struts attacks"
+        ],
+        "file-upload-extensions": [
+          "JPG",
+          "GIF",
+          "PDF"
+        ],
+        "maximum-upload-file-size": "1024",
+        "validate-parameter-name": "No",
+        "allowed-file-upload-type": "Extensions"
+      },
+      "name": "owa",
+      "Cookie Security": {
+        "cookie-replay-protection-type": "IP",
+        "custom-headers": [],
+        "http-only": "No",
+        "secure-cookie": "No",
+        "cookies-exempted": [
+          "__utma",
+          "__utmc",
+          "__utmz",
+          "__utmb",
+          "AuthSuccessURL",
+          "CTSESSION",
+          "SMSESSION",
+          "SMCHALLENGE"
+        ],
+        "cookie-max-age": "1440",
+        "tamper-proof-mode": "Signed",
+        "allow-unrecognized-cookies": "Custom",
+        "days-allowed": "7"
+      },
+      "URL Protection": {
+        "enable": "Enable",
+        "max-content-length": "32768",
+        "exception-patterns": [],
+        "custom-blocked-attack-types": [],
+        "csrf-prevention": "None",
+        "allowed-methods": [
+          "GET",
+          "POST",
+          "PUT",
+          "HEAD",
+          "CONNECT",
+          "OPTIONS",
+          "DELETE",
+          "SEARCH",
+          "POLL",
+          "PROPFIND",
+          "BMOVE",
+          "BCOPY",
+          "SUBSCRIBE",
+          "MOVE",
+          "PROPPATCH",
+          "BPROPPATCH",
+          "BDELETE",
+          "MKCOL",
+          "RPC_OUT_DATA",
+          "RPC_IN_DATA",
+          "COPY",
+          "ERROR",
+          "LOCK",
+          "PURGE",
+          "TRACE",
+          "UNLOCK"
+        ],
+        "max-parameters": "40",
+        "blocked-attack-types": [
+          "Cross-Site Scripting",
+          "SQL Injection",
+          "OS Command Injection",
+          "LDAP Injection",
+          "Python-PHP attacks",
+          "HTTP Specific Injection",
+          "Apache Struts attacks"
+        ],
+        "maximum-upload-files": "5",
+        "allowed-content-types": [
+          "application/x-www-form-urlencoded",
+          "multipart/form-data",
+          "application/x-www-UTF8-encoded",
+          "text/xml",
+          "text/plain",
+          "application/vnd.ms-sync.wbxml",
+          "message/rfc822",
+          "application/json",
+          "application/mapi-http"
+        ],
+        "maximum-parameter-name-length": "64"
+      },
+      "Cloaking": {
+        "filter-response-header": "Yes",
+        "headers-to-filter": [
+          "Server",
+          "X-Powered-By",
+          "X-AspNet-Version"
+        ],
+        "return-codes-to-exempt": [],
+        "suppress-return-code": "No"
+      }
+    }
+  },
+  "token": "eyJldCI6IjE1MTU0ODg2MjQiLCJwYXNzd29yZCI6ImExOTczN2RiYTBhODFjNDhlNTM3YWNmYzAy\nZTdlMTU5IiwidXNlciI6ImFkbWluIn0=\n"
+}

@@ -1,7 +1,7 @@
 require_relative '../restbase'
 
 Puppet::Type.type(:barracudawaf_system).provide(
-  :rest, parent: Puppet::Provider::RestBase
+  :restapi, parent: Puppet::Provider::RestBase
 ) do
   mk_resource_flush_methods
 

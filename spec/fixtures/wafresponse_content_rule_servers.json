@@ -1,0 +1,118 @@
+{
+  "object": "Rule Group Server",
+  "data": {
+    "172.29.97.2_80": {
+      "backup-server": "No",
+      "address-version": "IPv4",
+      "Advanced Configuration": {
+        "max-spare-connections": "0",
+        "source-ip-to-connect": "",
+        "max-requests": "1000",
+        "max-establishing-connections": "100",
+        "max-connections": "10000",
+        "timeout": "300000",
+        "max-keepalive-requests": "0",
+        "client-impersonation": "No"
+      },
+      "In Band Health Checks": {
+        "max-timeout-failure": "10",
+        "max-other-failure": "10",
+        "max-http-errors": "0",
+        "max-refused": "10"
+      },
+      "status": "In Service",
+      "name": "server2",
+      "hostname": "",
+      "comments": "",
+      "port": "80",
+      "Application Layer Health Checks": {
+        "domain": "",
+        "match-content-string": "",
+        "additional-headers": [],
+        "url": "",
+        "method": "GET",
+        "status-code": "200"
+      },
+      "identifier": "IP Address",
+      "SSL Policy": {
+        "enable-sni": "No",
+        "enable-ssl-3": "No",
+        "enable-tls-1-1": "Yes",
+        "enable-ssl-compatibility-mode": "No",
+        "enable-tls-1-2": "Yes",
+        "client-certificate": "",
+        "enable-https": "Off",
+        "validate-certificate": "Yes",
+        "enable-tls-1": "No"
+      },
+      "Connection Pooling": {
+        "keepalive-timeout": "900000",
+        "enable-connection-pooling": "Yes"
+      },
+      "weight": "1",
+      "ip-address": "172.29.97.2",
+      "Out of Band Health Checks": {
+        "enable-OOB-health-checks": "On",
+        "interval": "10"
+      }
+    },
+    "172.29.97.1_80": {
+      "backup-server": "No",
+      "address-version": "IPv4",
+      "Advanced Configuration": {
+        "max-spare-connections": "0",
+        "source-ip-to-connect": "",
+        "max-requests": "1000",
+        "max-establishing-connections": "100",
+        "max-connections": "10000",
+        "timeout": "300000",
+        "max-keepalive-requests": "0",
+        "client-impersonation": "No"
+      },
+      "In Band Health Checks": {
+        "max-timeout-failure": "10",
+        "max-other-failure": "10",
+        "max-http-errors": "0",
+        "max-refused": "10"
+      },
+      "status": "In Service",
+      "name": "server1",
+      "hostname": "",
+      "comments": "",
+      "port": "80",
+      "Application Layer Health Checks": {
+        "domain": "",
+        "match-content-string": "",
+        "additional-headers": [],
+        "url": "",
+        "method": "GET",
+        "status-code": "200"
+      },
+      "identifier": "IP Address",
+      "SSL Policy": {
+        "enable-sni": "No",
+        "enable-ssl-3": "No",
+        "enable-tls-1-1": "Yes",
+        "enable-ssl-compatibility-mode": "No",
+        "enable-tls-1-2": "Yes",
+        "client-certificate": "",
+        "enable-https": "Off",
+        "validate-certificate": "Yes",
+        "enable-tls-1": "No"
+      },
+      "Connection Pooling": {
+        "keepalive-timeout": "900000",
+        "enable-connection-pooling": "Yes"
+      },
+      "weight": "1",
+      "ip-address": "172.29.97.1",
+      "Out of Band Health Checks": {
+        "enable-OOB-health-checks": "On",
+        "interval": "10"
+      }
+    }
+  },
+  "token": "eyJldCI6IjE1MTU0MzE4MzUiLCJwYXNzd29yZCI6IjE0ODA0YWU4YTdlODJiYWJlZWE1NTU1NjI0\nM2E4OGI3IiwidXNlciI6ImFkbWluIn0=\n",
+  "Rule Group": "rule2",
+  "Service": "testservice"
+}

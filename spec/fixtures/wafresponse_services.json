@@ -1,0 +1,370 @@
+{
+  "object": "Service",
+  "data": {
+    "testservice": {
+      "Server": {},
+      "Load Balancing": {
+        "persistence-cookie-domain": "",
+        "algorithm": "Round Robin",
+        "source-ip-netmask": "",
+        "persistence-method": "None",
+        "cookie-age": "",
+        "persistence-idle-timeout": "600",
+        "persistence-cookie-name": "persistence",
+        "persistence-cookie-path": "/",
+        "parameter-name": "",
+        "header-name": "",
+        "failover-method": "Load Balance"
+      },
+      "Authentication": {
+        "login-page": "default-login-page",
+        "dual-login-page": "default-dual-login-page",
+        "service-provider-org-name": "",
+        "login-failed-page": "default-login-failed-page",
+        "kerberos-spn": "",
+        "signing-certificate": "",
+        "login-processor-path": "/nclogin.submit",
+        "count-window": "60",
+        "cookie-domain": "",
+        "send-domain-name": "Block",
+        "service-provider-entity-id": "",
+        "login-successful-page": "default-login-success-page",
+        "groups": "",
+        "session-timeout-for-activesync": "480",
+        "service-provider-display-name": "",
+        "master-service-url": "",
+        "encryption-certificate": "",
+        "authentication-service": "",
+        "logout-successful-page": "default-logout-success-page",
+        "challenge-user-field": "challenge_user",
+        "logout-page": "default-login-success-page",
+        "access-denied-page": "default-access-denied-page",
+        "master-service": "No",
+        "cookie-path": "/",
+        "login-challenge-page": "default-challenge-page",
+        "idle-timeout": "15",
+        "service-provider-org-url": "",
+        "password-expired-url": "",
+        "status": "Off",
+        "post-processor-path": "/saml.sso/saml2/post",
+        "dual-authentication": "No",
+        "sso-cookie-update-interval": "30",
+        "challenge-prompt-field": "challenge_prompt",
+        "enable-bruteforce-prevention": "No",
+        "max-failed-attempts": "10",
+        "creation-timeout": "",
+        "kerberos-enable-delegation": "Yes",
+        "secondary-authentication-service": "",
+        "action": "Default",
+        "kerberos-debug-status": "No",
+        "logout-processor-path": "/saml.sso/slo/redirect"
+      },
+      "comments": "",
+      "Instant SSL": {
+        "status": "Off",
+        "secure-site-domain": [],
+        "sharepoint-rewrite-support": "Off"
+      },
+      "enable-access-logs": "Yes",
+      "FTP": {
+        "allowed-verb-status": "Yes",
+        "attack-prevention-status": "No",
+        "allowed-verbs": [],
+        "pasv-ports": [],
+        "pasv-ip-address": ""
+      },
+      "session-timeout": "60",
+      "Caching": {
+        "cache-negative-response": "No",
+        "status": "Off",
+        "file-extensions": [],
+        "expiry-age": "60",
+        "ignore-response-headers": "No",
+        "min-size": "256",
+        "ignore-request-headers": "No",
+        "max-size": "256"
+      },
+      "Clickjacking": {
+        "allowed-origin": "",
+        "options": "Same Origin",
+        "status": "Off"
+      },
+      "Website Profile": {
+        "allowed-domains": [],
+        "use-profile": "Yes",
+        "mode": "Passive",
+        "include-url-patterns": [],
+        "strict-profile-check": "No",
+        "exclude-url-patterns": [
+          "*.jpg",
+          "*.png",
+          "*.gif",
+          "*.tiff",
+          "/images/*",
+          "*.ico",
+          "*.img",
+          "*.swf",
+          "*.jpeg",
+          "*.js",
+          "*.css"
+        ]
+      },
+      "Basic Security": {
+        "rate-control-status": "Off",
+        "rate-control-pool": "NONE",
+        "web-firewall-log-level": "5-Notice",
+        "trusted-hosts-group": "",
+        "mode": "Passive",
+        "client-ip-addr-header": "",
+        "ignore-case": "Yes",
+        "trusted-hosts-action": "Default",
+        "web-firewall-policy": "default"
+      },
+      "Compression": {
+        "content-types": [],
+        "status": "Off",
+        "min-size": "8192",
+        "unknown-content-types": "No"
+      },
+      "ip-address": "172.29.97.7",
+      "Rule Group": {
+        "object": "Rule Group",
+        "data": {
+          "rule2": {
+            "Rule Group Server": {
+              "object": "Rule Group Server",
+              "data": {
+                "172.29.97.2_80": {
+                  "backup-server": "No",
+                  "address-version": "IPv4",
+                  "status": "In Service",
+                  "name": "server2",
+                  "hostname": "",
+                  "comments": "",
+                  "port": "80",
+                  "identifier": "IP Address",
+                  "weight": "1",
+                  "ip-address": "172.29.97.2"
+                },
+                "172.29.97.1_80": {
+                  "backup-server": "No",
+                  "address-version": "IPv4",
+                  "status": "In Service",
+                  "name": "server1",
+                  "hostname": "",
+                  "comments": "",
+                  "port": "80",
+                  "identifier": "IP Address",
+                  "weight": "1",
+                  "ip-address": "172.29.97.1"
+                }
+              }
+            },
+            "extended-match-sequence": "1000",
+            "url-match": "/*",
+            "Rule Group Server count": 2,
+            "status": "On",
+            "mode": "Passive",
+            "extended-match": "*",
+            "comments": "",
+            "web-firewall-policy": "default",
+            "app-id": "rule2",
+            "host-match": "host2"
+          },
+          "rule1": {
+            "Rule Group Server": {
+              "object": "Rule Group Server",
+              "data": {
+                "172.29.97.2_80": {
+                  "backup-server": "No",
+                  "address-version": "IPv4",
+                  "status": "In Service",
+                  "name": "server2",
+                  "hostname": "",
+                  "comments": "",
+                  "port": "80",
+                  "identifier": "IP Address",
+                  "weight": "1",
+                  "ip-address": "172.29.97.2"
+                },
+                "172.29.97.1_80": {
+                  "backup-server": "No",
+                  "address-version": "IPv4",
+                  "status": "In Service",
+                  "name": "server1",
+                  "hostname": "",
+                  "comments": "",
+                  "port": "80",
+                  "identifier": "IP Address",
+                  "weight": "1",
+                  "ip-address": "172.29.97.1"
+                }
+              }
+            },
+            "extended-match-sequence": "1000",
+            "url-match": "/*",
+            "Rule Group Server count": 2,
+            "status": "On",
+            "mode": "Passive",
+            "extended-match": "*",
+            "comments": "",
+            "web-firewall-policy": "default",
+            "app-id": "rule1",
+            "host-match": "host1"
+          },
+          "rule3": {
+            "Rule Group Server": {
+              "object": "Rule Group Server",
+              "data": {
+                "172.29.97.2_80": {
+                  "backup-server": "No",
+                  "address-version": "IPv4",
+                  "status": "In Service",
+                  "name": "server2",
+                  "hostname": "",
+                  "comments": "",
+                  "port": "80",
+                  "identifier": "IP Address",
+                  "weight": "1",
+                  "ip-address": "172.29.97.2"
+                },
+                "172.29.97.1_80": {
+                  "backup-server": "No",
+                  "address-version": "IPv4",
+                  "status": "In Service",
+                  "name": "server1",
+                  "hostname": "",
+                  "comments": "",
+                  "port": "80",
+                  "identifier": "IP Address",
+                  "weight": "1",
+                  "ip-address": "172.29.97.1"
+                }
+              }
+            },
+            "extended-match-sequence": "1000",
+            "url-match": "/*",
+            "Rule Group Server count": 2,
+            "status": "On",
+            "mode": "Passive",
+            "extended-match": "*",
+            "comments": "",
+            "web-firewall-policy": "default",
+            "app-id": "rule3",
+            "host-match": "host3"
+          }
+        }
+      },
+      "SSL OCSP": {
+        "enable": "No",
+        "responder-url": "",
+        "certificate": ""
+      },
+      "address-version": "IPv4",
+      "Advanced Configuration": {
+        "enable-vdi": "No",
+        "enable-web-application-firewall": "Yes",
+        "enable-websocket": "No",
+        "ddos-exception-list": [],
+        "keepalive-requests": "64",
+        "ntlm-ignore-extra-data": "No",
+        "accept-list-status": "No",
+        "enable-http2": "No",
+        "enable-proxy-protocol": "No",
+        "proxy-list-status": "No",
+        "accept-list": [],
+        "proxy-list": []
+      },
+      "Mask Sensitive Data": {
+        "sensitive-parameter-names": ""
+      },
+      "name": "testservice",
+      "port": "80",
+      "SSL Security": {
+        "ciphers": "Default",
+        "enable-sni": "No",
+        "status": "Off",
+        "certificate": "",
+        "hsts-max-age": "365",
+        "enable-strict-sni-check": "No",
+        "sni-certificate": [],
+        "ecdsa-certificate": "",
+        "domain": [],
+        "override-ciphers-ssl3": "",
+        "override-ciphers-tls-1": "",
+        "override-ciphers-tls-1-1": "",
+        "enable-ssl-3": "No",
+        "enable-tls-1-1": "Yes",
+        "enable-hsts": "No",
+        "enable-tls-1-2": "Yes",
+        "include-hsts-sub-domains": "No",
+        "sni-ecdsa-certificate": [],
+        "selected-ciphers": "ECDHE-ECDSA-AES256-GCM-SHA384,ECDHE-RSA-AES256-GCM-SHA384,ECDHE-ECDSA-AES128-GCM-SHA256,ECDHE-RSA-AES128-GCM-SHA256,ECDHE-ECDSA-AES256-SHA384,ECDHE-RSA-AES256-SHA384,ECDHE-ECDSA-AES128-SHA256,ECDHE-RSA-AES128-SHA256,AES256-GCM-SHA384,AES128-GCM-SHA256,AES256-SHA256,AES128-SHA256,ECDHE-ECDSA-AES256-SHA,ECDHE-RSA-AES256-SHA,ECDHE-ECDSA-DES-CBC3-SHA,ECDHE-RSA-DES-CBC3-SHA,ECDHE-ECDSA-AES128-SHA,ECDHE-RSA-AES128-SHA,AES256-SHA,DHE-RSA-AES256-GCM-SHA384,DHE-RSA-AES256-SHA256,DHE-RSA-AES256-SHA,DHE-RSA-CAMELLIA256-SHA,DHE-RSA-AES128-GCM-SHA256,DHE-RSA-AES128-SHA256,DHE-RSA-AES128-SHA,DHE-RSA-CAMELLIA128-SHA,EDH-RSA-DES-CBC3-SHA,CAMELLIA256-SHA,DES-CBC3-SHA,AES128-SHA,CAMELLIA128-SHA",
+        "enable-tls-1": "No",
+        "enable-pfs": "No"
+      },
+      "Session Tracking": {
+        "identifiers": [],
+        "status": "Off",
+        "exception-clients": "",
+        "max-interval": "60",
+        "max-sessions-per-ip": ""
+      },
+      "type": "HTTP",
+      "Adaptive Profiling": {
+        "ignore-parameters": [],
+        "content-types": [
+          "text/html",
+          "text/css"
+        ],
+        "status": "Off",
+        "trusted-host-group": "",
+        "response-learning": "Successes and Redirects",
+        "navigation-parameters": [],
+        "request-learning": "Successes and Redirects"
+      },
+      "status": "On",
+      "URL Encryption": {
+        "status": "Off"
+      },
+      "Rule Group count": 3,
+      "group": "default",
+      "app-id": "testservice",
+      "IP Reputation": {
+        "tor-nodes": "Allow",
+        "geoip-enable-logging": "No",
+        "satellite-provider": "Allow",
+        "geoip-action": "Block",
+        "apply-policy-at": "Network Layer",
+        "enable-ip-reputation-filter": "Off",
+        "anonymous-proxy": "Allow",
+        "geo-pool": "",
+        "barracuda-reputation-blocklist": "Allow"
+      },
+      "vsite": "default",
+      "mask": "255.255.255.0",
+      "SSL Client Authentication": {
+        "trusted-certificates": [],
+        "enforce-client-certificate": "Yes",
+        "client-authentication": "Disable",
+        "client-certificate-for-rule": []
+      },
+      "Exception Profiling": {
+        "exception-profiling-learn-from-trusted-host": "No",
+        "exception-profiling-level": "None",
+        "exception-profiling-trusted-host-group": ""
+      },
+      "Slow Client Attack Prevention": {
+        "data-transfer-rate": "10",
+        "status": "Off",
+        "exception-clients": "",
+        "incremental-request-timeout": "30",
+        "incremental-response-timeout": "30",
+        "max-response-timeout": "600",
+        "max-request-timeout": "600"
+      },
+      "Server count": 0
+    }
+  },
+  "token": "eyJldCI6IjE1MTU0MzE4MzEiLCJwYXNzd29yZCI6IjhhYWE5OTgwODczZWYzYWM3MTAxMTkxYzlm\nMTQyMDQ3IiwidXNlciI6ImFkbWluIn0=\n"
+}

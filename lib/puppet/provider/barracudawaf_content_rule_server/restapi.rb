@@ -7,6 +7,7 @@ Puppet::Type.type(:barracudawaf_content_rule_server).provide(
   def self.api_resource
     'content-rule-servers'
   end
+
   def self.parent_api_resources
     ['services', 'content-rules']
   end
