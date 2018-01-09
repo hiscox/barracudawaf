@@ -40,7 +40,7 @@ module PuppetX
           stringlog = StringIO.new
           RestClient.log = Logger.new(stringlog)
           response = RestClient::Request.execute(request)
-          Puppet.debug(response.body)
+          # Puppet.debug(response.body)
           JSON.parse(response.body)
         rescue RuntimeError => e
           # TODO: proper error handling

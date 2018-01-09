@@ -8,8 +8,4 @@ Puppet::Type.type(:barracudawaf_system).provide(
   def self.api_resource
     'system'
   end
-
-  def global_resource?
-    true
-  end
 end
