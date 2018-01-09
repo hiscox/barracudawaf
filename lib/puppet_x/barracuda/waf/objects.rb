@@ -8,7 +8,7 @@ module PuppetX
         PuppetX::BarracudaWaf::ApiClient.invoke do |client|
           result = client.invoke(:get, resource, {})['data']
         end
-        result
+        result ? result : []
       end
 
       def self.add(resource, properties)
