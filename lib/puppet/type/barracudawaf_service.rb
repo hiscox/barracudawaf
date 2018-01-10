@@ -59,4 +59,40 @@ Puppet::Type.newtype(:barracudawaf_service) do
       is.include_hash?(should)
     end
   end
+
+  newproperty(:ssl_security) do
+    def insync?(is)
+      is.include_hash?(should)
+    end
+  end
+
+  newproperty(:instant_ssl) do
+    def insync?(is)
+      is.include_hash?(should)
+    end
+  end
+
+  newproperty(:load_balancing) do
+    def insync?(is)
+      is.include_hash?(should)
+    end
+  end
+
+  newproperty(:ssl_client_authentication) do
+    def insync?(is)
+      is.include_hash?(should)
+    end
+  end
+
+  newproperty(:authentication) do
+    def insync?(is)
+      is.include_hash?(should)
+    end
+  end
+
+  newproperty(:ssl_ocsp) do
+    def insync?(is)
+      is.include_hash?(should)
+    end
+  end
 end

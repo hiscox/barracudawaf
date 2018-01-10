@@ -11,7 +11,20 @@ module PuppetX
 
       @mapping = {
         'Basic Security' => 'basic-security',
-        'Secure Administration' => 'secure-administration'
+        'Secure Administration' => 'secure-administration',
+        'URL Normalization' => 'url-normalization',
+        'Request Limits' => 'request-limits',
+        'Parameter Protection' => 'parameter-protection',
+        'Cookie Security' => 'cookie-security',
+        'URL Protection' => 'url-protection',
+        'Cloaking' => 'cloaking',
+        'Basic Security' => 'basic-security',
+        'Instant SSL' => 'instant-ssl',
+        'Load Balancing' => 'load-balancing',
+        'SSL Security' => 'ssl-security',
+        'SSL Client Authentication' => 'ssl-client-authentication',
+        'SSL OCSP' => 'ssl-ocsp',
+        'Authentication' => 'authentication'
       }
     end
   end
