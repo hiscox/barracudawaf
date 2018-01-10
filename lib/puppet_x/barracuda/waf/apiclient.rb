@@ -43,13 +43,7 @@ module PuppetX
           # Puppet.debug(response.body)
           JSON.parse(response.body)
         rescue RuntimeError => e
-          # TODO: proper error handling
-          if e.response.code == 302
-            redirect = e.http_headers[:location]
-            Puppet.warning("Redirect to '#{redirect}' detected")
-          else
-            raise e
-          end
+          handle_error(e)
         ensure
           Puppet.debug(stringlog.string) unless resource == 'login'
         end
@@ -67,6 +61,15 @@ module PuppetX
         end
         request[:user] = @token unless @token.nil?
         request
+      end
+
+      def handle_error(error)
+        raise error unless error.is_a?(RestClient::Exception)
+        if error.response.code == 302
+          Puppet.warning("Redirect to '#{error.http_headers[:location]}' detected")
+        else
+          raise error
+        end
       end
 
       def sanitise_url(url)

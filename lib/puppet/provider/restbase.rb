@@ -23,11 +23,11 @@ class Puppet::Provider::RestBase < Puppet::Provider
     urls = resource_urls(api_resource_chain[0], api_resource_chain.drop(1))
     result = urls.flatten.each.collect do |url|
       result = PuppetX::BarracudaWaf::Objects.list(url)
-      result.each.collect do |name, properties|
+      result.each.collect do |_name, properties|
         resource_hash = {}
         resource_hash[:ensure] = :present
         resource_hash[:name] = "/#{url}/#{properties['name']}".chomp('/')
-        replace_hyphen(properties).each do |key, value|
+        convert_api_response(properties).each do |key, value|
           resource_hash[key] = value if resource_type.validproperties.include?(key)
         end
         new(resource_hash)
@@ -50,7 +50,7 @@ class Puppet::Provider::RestBase < Puppet::Provider
 
   def create
     PuppetX::BarracudaWaf::Objects.add(base_resource_url, property_create)
-    replace_underscore(nested_property_create).each do |sub_resource, properties|
+    convert_puppet_input(nested_property_create).each do |sub_resource, properties|
       resource_url = "#{@resource[:name]}/#{sub_resource}"
       PuppetX::BarracudaWaf::Objects.edit(resource_url, properties)
     end
@@ -64,10 +64,10 @@ class Puppet::Provider::RestBase < Puppet::Provider
 
   def flush
     unless @property_flush.empty?
-      PuppetX::BarracudaWaf::Objects.edit(@resource[:name], replace_underscore(@property_flush))
+      PuppetX::BarracudaWaf::Objects.edit(@resource[:name], convert_puppet_input(@property_flush))
     end
     unless @property_nested.empty?
-      replace_underscore(@property_nested).each do |sub_resource, properties|
+      convert_puppet_input(@property_nested).each do |sub_resource, properties|
         resource_url = "#{@resource[:name]}/#{sub_resource}"
         PuppetX::BarracudaWaf::Objects.edit(resource_url, properties)
       end
@@ -75,15 +75,13 @@ class Puppet::Provider::RestBase < Puppet::Provider
     @property_hash = @resource.to_hash
   end
 
-  # Replaces underscores with hyphens in the keys of a hash and converts
-  # them to strings
-  def replace_underscore(input_hash)
+  # Convert values from Puppet so they can be passed to the API
+  def convert_puppet_input(input_hash)
     input_hash.map { |k, v| [k.to_s.tr('_', '-'), v] }.to_h
   end
 
-  # Replaces hyphens with underscores in the keys of a hash and converts
-  # them to symbols
-  def self.replace_hyphen(input_hash)
+  # Convert response from the API so Puppet can understand it
+  def self.convert_api_response(input_hash)
     input_hash.map { |k, v|
       [PuppetX::BarracudaWaf::NameLookup.url_name(k).tr('-', '_').to_sym, v]
     }.to_h
@@ -123,10 +121,11 @@ class Puppet::Provider::RestBase < Puppet::Provider
     parent_api_resources + [api_resource]
   end
 
+  # Recursively search through the WAF for nested resources
   def self.resource_urls(resource_url, child_resources)
     return [resource_url] if child_resources.count.zero?
     items = PuppetX::BarracudaWaf::Objects.list(resource_url)
-    items.each.collect do |name, properties|
+    items.each.collect do |_name, properties|
       next_url = "#{resource_url}/#{properties['name']}/#{child_resources[0]}"
       resource_urls(next_url, child_resources.drop(1))
     end
@@ -142,6 +141,7 @@ class Puppet::Provider::RestBase < Puppet::Provider
     @resource[:name].lines('/').last
   end
 
+  # Hash of properties from the resource to be passed to create
   def property_create
     result = {}
     @resource.eachproperty do |prop|
@@ -149,20 +149,15 @@ class Puppet::Provider::RestBase < Puppet::Provider
       result[prop.name] = prop.should unless prop.should.is_a?(Hash)
     end
     result['name'] = resource_name
-    replace_underscore(result)
+    convert_puppet_input(result)
   end
 
+  # Hash of nested properties from the resource to be passed to create
   def nested_property_create
     result = {}
     @resource.eachproperty do |prop|
       result[prop.name] = prop.should if prop.should.is_a?(Hash)
     end
-    replace_underscore(result)
-  end
-
-  # Override this in the child provider if this is a global setting
-  # rather than a createable resource with a unique name, e.g. /system
-  def global_resource?
-    false
+    convert_puppet_input(result)
   end
 end
