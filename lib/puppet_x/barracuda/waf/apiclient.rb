@@ -67,8 +67,18 @@ module PuppetX
         raise error unless error.is_a?(RestClient::Exception)
         if error.response.code == 302
           Puppet.warning("Redirect to '#{error.http_headers[:location]}' detected")
+        elsif error.response
+          raise json_try_parse(error.response)
         else
           raise error
+        end
+      end
+
+      def json_try_parse(input)
+        begin
+          JSON.parse(input).to_s
+        rescue JSON::ParserError => q
+          input
         end
       end
 
