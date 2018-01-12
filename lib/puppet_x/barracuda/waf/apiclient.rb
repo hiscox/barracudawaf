@@ -1,5 +1,5 @@
 require 'json'
-require 'rest-client'
+require 'rest-client' if Puppet.features.restclient?
 require 'stringio'
 require_relative 'config'
 
