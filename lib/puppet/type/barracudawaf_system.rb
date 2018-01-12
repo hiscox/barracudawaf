@@ -41,4 +41,16 @@ Puppet::Type.newtype(:barracudawaf_system) do
       is.include_hash?(should)
     end
   end
+
+  newproperty(:password_policy) do
+    def insync?(is)
+      is.include_hash?(should)
+    end
+  end
+
+  newproperty(:snmp) do
+    def insync?(is)
+      is.include_hash?(should)
+    end
+  end
 end

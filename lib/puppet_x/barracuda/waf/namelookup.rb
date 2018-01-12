@@ -18,7 +18,6 @@ module PuppetX
         'Cookie Security' => 'cookie-security',
         'URL Protection' => 'url-protection',
         'Cloaking' => 'cloaking',
-        'Basic Security' => 'basic-security',
         'Instant SSL' => 'instant-ssl',
         'Load Balancing' => 'load-balancing',
         'SSL Security' => 'ssl-security',
