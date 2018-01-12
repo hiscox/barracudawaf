@@ -78,6 +78,7 @@ module PuppetX
         begin
           parsed = JSON.parse(input)
           parsed['token'] = nil
+          parsed.to_s
         rescue JSON::ParserError => q
           input
         end
