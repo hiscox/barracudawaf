@@ -23,7 +23,9 @@ module PuppetX
         'SSL Security' => 'ssl-security',
         'SSL Client Authentication' => 'ssl-client-authentication',
         'SSL OCSP' => 'ssl-ocsp',
-        'Authentication' => 'authentication'
+        'Authentication' => 'authentication',
+        'SNMP' => 'snmp',
+        'Password Policy' => 'password-policy'
       }
     end
   end
