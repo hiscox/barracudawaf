@@ -25,7 +25,8 @@ module PuppetX
         'SSL OCSP' => 'ssl-ocsp',
         'Authentication' => 'authentication',
         'SNMP' => 'snmp',
-        'Password Policy' => 'password-policy'
+        'Password Policy' => 'password-policy',
+        'Email Notifications' => 'email-notifications'
       }
     end
   end
