@@ -54,6 +54,16 @@ Puppet::Type.newtype(:barracudawaf_service) do
   newproperty(:linked_service_name) do
   end
 
+  # This is an undocumented parameter from the V1 API
+  # which is only used when creating a service, so we set
+  # insync? to true. The certificate should be set using
+  # the ssl_security property.
+  newproperty(:certificate) do
+    def insync?(is)
+      true
+    end
+  end
+
   newproperty(:basic_security) do
     def insync?(is)
       is.include_hash?(should)
