@@ -7,6 +7,11 @@ Puppet::Type.newtype(:barracudawaf_external_ldap_service) do
   end
 
   newproperty(:bind_password) do
+    # API doesn't return this property, so
+    # override insync to prevent constant updating
+    def insync?(is)
+      true
+    end
   end
 
   newproperty(:search_base) do
