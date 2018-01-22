@@ -35,4 +35,10 @@ Puppet::Type.newtype(:barracudawaf_content_rule) do
 
   newproperty(:host_match) do
   end
+
+  newproperty(:load_balancing) do
+    def insync?(is)
+      is.include_hash?(should)
+    end
+  end
 end
