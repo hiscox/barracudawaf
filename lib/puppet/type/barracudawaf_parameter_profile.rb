@@ -9,7 +9,10 @@ Puppet::Type.newtype(:barracudawaf_parameter_profile) do
   newproperty(:status) do
   end
 
-  newproperty(:exception_patterns) do
+  newproperty(:exception_patterns, array_matching: :all) do
+    def insync?(is)
+      is.sort == should.sort
+    end
   end
 
   newproperty(:maximum_instances) do
@@ -33,7 +36,10 @@ Puppet::Type.newtype(:barracudawaf_parameter_profile) do
   newproperty(:required) do
   end
 
-  newproperty(:file_upload_extensions) do
+  newproperty(:file_upload_extensions, array_matching: :all) do
+    def insync?(is)
+      is.sort == should.sort
+    end
   end
 
   newproperty(:allowed_metachars) do
@@ -45,10 +51,16 @@ Puppet::Type.newtype(:barracudawaf_parameter_profile) do
   newproperty(:allowed_file_upload_type) do
   end
 
-  newproperty(:file_upload_mime_types) do
+  newproperty(:file_upload_mime_types, array_matching: :all) do
+    def insync?(is)
+      is.sort == should.sort
+    end
   end
 
-  newproperty(:values) do
+  newproperty(:values, array_matching: :all) do
+    def insync?(is)
+      is.sort == should.sort
+    end
   end
 
   newproperty(:custom_parameter_class) do
