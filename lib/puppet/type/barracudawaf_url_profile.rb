@@ -51,7 +51,10 @@ Puppet::Type.newtype(:barracudawaf_url_profile) do
   newproperty(:referrers_for_the_url_profile) do
   end
 
-  newproperty(:blocked_attack_types) do
+  newproperty(:blocked_attack_types, array_matching: :all) do
+    def insync?(is)
+      is.sort == should.sort
+    end
   end
 
   newproperty(:comment) do
