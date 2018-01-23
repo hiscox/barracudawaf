@@ -13,7 +13,7 @@ Puppet::Type.type(:barracudawaf_admin_ip_range).provide(
     result.each.collect do |_name, properties|
       resource_hash = {}
       resource_hash[:ensure] = :present
-      resource_hash[:name] = properties['ip-address']
+      resource_hash[:name] = "/#{api_resource}/#{properties['ip-address']}"
       resource_hash[:netmask] = properties['netmask']
       new(resource_hash)
     end
