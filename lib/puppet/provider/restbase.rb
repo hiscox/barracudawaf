@@ -22,8 +22,8 @@ class Puppet::Provider::RestBase < Puppet::Provider
   def self.instances
     urls = resource_urls(api_resource_chain[0], api_resource_chain.drop(1))
     result = urls.flatten.each.collect do |url|
-      result = PuppetX::BarracudaWaf::Objects.list(url)
-      result.each.collect do |_name, properties|
+      objects = PuppetX::BarracudaWaf::Objects.list(url)
+      objects.each.collect do |_name, properties|
         resource_hash = {}
         resource_hash[:ensure] = :present
         resource_hash[:name] = "/#{url}/#{properties['name']}".chomp('/')
