@@ -32,4 +32,10 @@ Puppet::Type.newtype(:barracudawaf_content_rule_server) do
 
   newproperty(:ip_address) do
   end
+
+  newproperty(:application_layer_health_checks) do
+    def insync?(is)
+      is.include_hash?(should)
+    end
+  end
 end
