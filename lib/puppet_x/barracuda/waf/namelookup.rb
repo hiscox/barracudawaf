@@ -26,7 +26,8 @@ module PuppetX
         'Authentication' => 'authentication',
         'SNMP' => 'snmp',
         'Password Policy' => 'password-policy',
-        'Email Notifications' => 'email-notifications'
+        'Email Notifications' => 'email-notifications',
+        'Application Layer Health Checks' => 'application-layer-health-checks'
       }
     end
   end
