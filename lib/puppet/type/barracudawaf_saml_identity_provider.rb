@@ -1,6 +1,8 @@
 Puppet::Type.newtype(:barracudawaf_saml_identity_provider) do
   @doc = 'Manage SAML identity providers'
 
+  ensurable
+
   newparam(:name) do
   end
 

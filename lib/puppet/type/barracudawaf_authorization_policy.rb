@@ -1,6 +1,8 @@
 Puppet::Type.newtype(:barracudawaf_authorization_policy) do
   @doc = 'Manage authorization policies for services'
 
+  ensurable
+
   newparam(:name) do
   end
 
