@@ -45,9 +45,6 @@ Puppet::Type.newtype(:barracudawaf_authorization_policy) do
   newproperty(:allow_any_authenticated_user) do
   end
 
-  newproperty(:name) do
-  end
-
   newproperty(:allowed_groups) do
   end
 
