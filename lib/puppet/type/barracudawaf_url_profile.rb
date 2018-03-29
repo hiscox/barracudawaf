@@ -4,6 +4,7 @@ Puppet::Type.newtype(:barracudawaf_url_profile) do
   ensurable
 
   newparam(:name) do
+    desc '/services/${service_name}/url-profiles/${profile_name}'
   end
 
   newproperty(:extended_match_sequence) do

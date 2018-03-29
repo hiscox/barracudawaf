@@ -4,6 +4,7 @@ Puppet::Type.newtype(:barracudawaf_http_request_rewrite_rule) do
   ensurable
 
   newparam(:name) do
+    desc '/services/${service_name}/http-request-rewrite-rules/${rule_name}'
   end
 
   newproperty(:old_value) do

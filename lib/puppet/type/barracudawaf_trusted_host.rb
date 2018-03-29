@@ -4,6 +4,7 @@ Puppet::Type.newtype(:barracudawaf_trusted_host) do
   ensurable
 
   newparam(:name) do
+    desc '/trusted-host-groups/${group_name}/trusted-hosts/${name}'
   end
 
   newproperty(:ipv6_mask) do

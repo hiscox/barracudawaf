@@ -4,6 +4,7 @@ Puppet::Type.newtype(:barracudawaf_vsite) do
   ensurable
 
   newparam(:name) do
+    desc '/vsites/${name}'
   end
 
   newproperty(:active_on) do

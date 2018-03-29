@@ -4,6 +4,7 @@ Puppet::Type.newtype(:barracudawaf_authorization_policy) do
   ensurable
 
   newparam(:name) do
+    desc '/services/${service_name}/authorization-policies/${policy_name}'
   end
 
   newproperty(:extended_match_sequence) do

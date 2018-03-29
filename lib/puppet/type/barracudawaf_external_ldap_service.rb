@@ -4,6 +4,7 @@ Puppet::Type.newtype(:barracudawaf_external_ldap_service) do
   ensurable
 
   newparam(:name) do
+    desc '/external-ldap-services/${realm_name}'
   end
 
   newproperty(:bind_password) do

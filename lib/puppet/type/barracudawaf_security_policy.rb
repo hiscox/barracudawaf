@@ -4,6 +4,7 @@ Puppet::Type.newtype(:barracudawaf_security_policy) do
   ensurable
 
   newparam(:name) do
+    desc '/security-policies/${policy_name}'
   end
 
   newproperty(:request_limits) do

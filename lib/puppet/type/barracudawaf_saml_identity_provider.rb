@@ -4,6 +4,7 @@ Puppet::Type.newtype(:barracudawaf_saml_identity_provider) do
   ensurable
 
   newparam(:name) do
+    desc '/saml-services/${service_name}/saml-identity-providers/${provider_name}'
   end
 
   newproperty(:metadata_url) do

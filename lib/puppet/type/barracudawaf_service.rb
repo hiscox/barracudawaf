@@ -4,6 +4,7 @@ Puppet::Type.newtype(:barracudawaf_service) do
   ensurable
 
   newparam(:name) do
+    desc '/services/${service_name}'
   end
 
   newproperty(:status) do

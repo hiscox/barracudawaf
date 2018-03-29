@@ -4,6 +4,7 @@ Puppet::Type.newtype(:barracudawaf_parameter_profile) do
   ensurable
 
   newparam(:name) do
+    desc '/services/${service_name}/url-profiles/${url_profile_name}/parameter-profiles/${profile_name}'
   end
 
   newproperty(:status) do

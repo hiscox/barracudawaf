@@ -4,6 +4,7 @@ Puppet::Type.newtype(:barracudawaf_content_rule) do
   ensurable
 
   newparam(:name) do
+    desc '/services/${service_name}/content-rules/${rule_name}'
   end
 
   newproperty(:extended_match_sequence) do

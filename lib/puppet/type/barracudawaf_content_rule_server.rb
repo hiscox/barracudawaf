@@ -4,6 +4,7 @@ Puppet::Type.newtype(:barracudawaf_content_rule_server) do
   ensurable
 
   newparam(:name) do
+    desc '/services/${service_name}/content-rules/${rule_name}/content-rule-servers/${server_name}'
   end
 
   newproperty(:backup_server) do

@@ -2,6 +2,7 @@ Puppet::Type.newtype(:barracudawaf_system) do
   @doc = 'Manage Barracuda system settings'
 
   newparam(:name) do
+    desc '/system'
     # Setting this seems to make the property hash vanish
     # newvalues('System')
   end

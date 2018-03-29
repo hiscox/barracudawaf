@@ -4,6 +4,7 @@ Puppet::Type.newtype(:barracudawaf_url_acl) do
   ensurable
 
   newparam(:name) do
+    desc '/services/${service_name}/url-acls/${acl_name}'
   end
 
   newproperty(:response_page) do
