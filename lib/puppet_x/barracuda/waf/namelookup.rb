@@ -27,7 +27,10 @@ module PuppetX
         'SNMP' => 'snmp',
         'Password Policy' => 'password-policy',
         'Email Notifications' => 'email-notifications',
-        'Application Layer Health Checks' => 'application-layer-health-checks'
+        'Application Layer Health Checks' => 'application-layer-health-checks',
+        'In Band Health Checks' => 'in-band-health-checks',
+        'Out of Band Health Checks' => 'out-of-band-health-checks',
+        'SSL Policy' => 'ssl-policy'
       }
     end
   end

@@ -45,4 +45,16 @@ Puppet::Type.newtype(:barracudawaf_content_rule_server) do
       is.include_hash?(should)
     end
   end
+
+  newproperty(:in_band_health_checks) do
+    def insync?(is)
+      is.include_hash?(should)
+    end
+  end
+
+  newproperty(:ssl_policy) do
+    def insync?(is)
+      is.include_hash?(should)
+    end
+  end
 end
