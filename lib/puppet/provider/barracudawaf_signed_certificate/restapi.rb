@@ -12,14 +12,14 @@ Puppet::Type.type(:barracudawaf_signed_certificate).provide(
 
   def self.instances
     objects = PuppetX::BarracudaWaf::Objects.list('certificates')
-    objects.each.collect do |properties| {
-      if (properties['type'] == 'uploaded_certificate') {
+    objects.each.collect do |properties|
+      if properties['type'] == 'uploaded_certificate'
         resource_hash = {}
         resource_hash[:ensure] = :present
         resource_hash[:name] = "/certificates/#{properties['name']}"
         new(resource_hash)
-      }
-    }
+      end
+    end
   end
 
   def self.prefetch(resources)
