@@ -54,5 +54,6 @@ Puppet::Type.type(:barracudawaf_signed_certificate).provide(
       result[param.to_s] = param.value unless param.metaparam?
     end
     result['name'] = resource_name
+    result['signed_certificate'] = File.new(@resource['signed_certificate'], 'rb')
   end
 end
