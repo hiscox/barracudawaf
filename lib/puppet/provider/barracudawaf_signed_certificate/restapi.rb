@@ -13,12 +13,11 @@ Puppet::Type.type(:barracudawaf_signed_certificate).provide(
   def self.instances
     objects = PuppetX::BarracudaWaf::Objects.list('certificates')
     objects.each.collect do |properties|
-      if properties['type'] == 'uploaded_certificate'
-        resource_hash = {}
-        resource_hash[:ensure] = :present
-        resource_hash[:name] = "/certificates/#{properties['name']}"
-        new(resource_hash)
-      end
+      next unless properties['type'] == 'uploaded_certificate'
+      resource_hash = {}
+      resource_hash[:ensure] = :present
+      resource_hash[:name] = "/certificates/#{properties['name']}"
+      new(resource_hash)
     end
   end
 
@@ -55,5 +54,6 @@ Puppet::Type.type(:barracudawaf_signed_certificate).provide(
     end
     result['name'] = resource_name
     result['signed_certificate'] = File.new(@resource['signed_certificate'], 'rb')
+    result
   end
 end
