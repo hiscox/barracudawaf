@@ -50,10 +50,14 @@ Puppet::Type.type(:barracudawaf_signed_certificate).provide(
   def property_create
     result = {}
     @resource.eachparameter do |param|
-      result[param.to_s] = param.value unless param.metaparam?
+      next if param.metaparam?
+      if %w[signed_certificate key intermediary_certificate].include?(param.to_s)
+        result[param.to_s] = File.new(param.value, 'rb')
+      else
+        result[param.to_s] = param.value
+      end
     end
     result['name'] = resource_name
-    result['signed_certificate'] = File.new(@resource['signed_certificate'], 'rb')
     result
   end
 end
