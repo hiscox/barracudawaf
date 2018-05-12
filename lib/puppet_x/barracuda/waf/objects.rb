@@ -28,6 +28,12 @@ module PuppetX
           client.invoke(:put, resource, properties)
         end
       end
+
+      def self.upload(resource, properties)
+        PuppetX::BarracudaWaf::ApiClient.invoke do |client|
+          client.invoke_multipart(:post, resource, properties)
+        end
+      end
     end
   end
 end

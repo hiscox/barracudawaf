@@ -34,7 +34,7 @@ Puppet::Type.type(:barracudawaf_signed_certificate).provide(
   end
 
   def create
-    PuppetX::BarracudaWaf::Objects.add('/certificates?upload=signed', property_create)
+    PuppetX::BarracudaWaf::Objects.upload('/certificates?upload=signed', property_create)
     @property_hash[:ensure] = :present
   end
 
@@ -51,6 +51,7 @@ Puppet::Type.type(:barracudawaf_signed_certificate).provide(
     result = {}
     @resource.eachparameter do |param|
       next if param.metaparam?
+      next if %w[ensure provider].include?(param.to_s)
       if %w[signed_certificate key intermediary_certificate].include?(param.to_s)
         result[param.to_s] = File.new(param.value, 'rb')
       else
