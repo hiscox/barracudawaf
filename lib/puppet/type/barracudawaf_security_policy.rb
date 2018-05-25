@@ -42,4 +42,10 @@ Puppet::Type.newtype(:barracudawaf_security_policy) do
       is.include_hash?(should)
     end
   end
+
+  newproperty(:action_policies) do
+    def insync?(is)
+      is.include_hash?(should)
+    end
+  end
 end
