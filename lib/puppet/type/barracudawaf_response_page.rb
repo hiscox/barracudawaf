@@ -10,7 +10,10 @@ Puppet::Type.newtype(:barracudawaf_response_page) do
   newproperty(:body) do
   end
 
-  newproperty(:headers) do
+  newproperty(:headers, array_matching: :all) do
+    def insync?(is)
+      is.sort == should.sort
+    end
   end
 
   newproperty(:type) do
