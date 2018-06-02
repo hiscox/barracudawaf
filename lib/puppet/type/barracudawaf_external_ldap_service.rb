@@ -47,4 +47,10 @@ Puppet::Type.newtype(:barracudawaf_external_ldap_service) do
 
   newproperty(:ip_address) do
   end
+
+  newproperty(:role_map) do
+  end
+
+  newproperty(:role_order) do
+  end
 end

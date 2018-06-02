@@ -50,6 +50,28 @@ module PuppetX
         end
       end
 
+      def invoke_multipart(method, resource, payload)
+        begin
+          RestClient.proxy = @config['proxy']
+          payload[:multipart] = true
+          request = RestClient::Request.new(
+            method: method,
+            url: sanitise_url("#{@endpoint}/#{resource}"),
+            user: @token,
+            verify_ssl: OpenSSL::SSL::VERIFY_NONE,
+            payload: payload
+          )
+          stringlog = StringIO.new
+          RestClient.log = Logger.new(stringlog)
+          response = request.execute
+          JSON.parse(response.body)
+        rescue RuntimeError => e
+          handle_error(e)
+        ensure
+          Puppet.debug(stringlog.string) unless resource == 'login'
+        end
+      end
+
       def build_request(method, resource, payload)
         request = {
           method: method,
